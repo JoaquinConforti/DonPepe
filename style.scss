@@ -1,188 +1,340 @@
-// =========================
 // Variables
-// =========================
-$color-fondo: #111;
-$color-principal: #e63946;
-$color-secundario: #457b9d;
-$color-texto: #f1faee;
-$color-footer: #222;
-$color-header: #1d3557;
-$fuente-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-family: Arial, sans-serif;
+$color-text: #333;
+$color-link: #8b0000; // rojo oscuro
+$color-link-hover: #b22222;
+$color-bg-header-footer: #f7d6c1; // melocotón claro
+$color-bg-hero: #f2f2f2;
+$color-bg-message: #f9c5b3; // melocotón más fuerte
+$color-bg-product: #fff8f0; // fondo claro cálido para productos
+$color-border-product: #ccc;
+$color-btn-bg: white;
+$color-btn-border: #b22222;
+$color-btn-text: #b22222;
+$color-btn-bg-hover: #b22222;
+$color-btn-text-hover: white;
 
-// =========================
-// Reset y base
-// =========================
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+// Mixin para animaciones
+@mixin animation($name, $duration, $timing: ease-in-out, $iteration: infinite) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+  animation-iteration-count: $iteration;
 }
 
+// Keyframes para animación pulse
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(178, 34, 34, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(178, 34, 34, 0.7);
+  }
+}
+
+// Extend para estilo común de tarjetas
+%card-style {
+  background-color: $color-bg-product;
+  padding: 15px;
+  border: 1px solid $color-border-product;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+}
+
+// General
 body {
-  background-color: $color-fondo;
-  color: $color-texto;
-  font-family: $fuente-base;
-  line-height: 1.6;
+  margin: 0;
+  font-family: $font-family;
+  color: $color-text;
+  background-color: #fff8f0;
+  overflow-x: hidden; // evitar scroll horizontal
 }
 
-// =========================
-// Header
-// =========================
-header {
-  background-color: $color-header;
-  color: $color-texto;
-  padding: 1rem 2rem;
+a {
+  text-decoration: none;
+  color: $color-link;
+
+  &:hover {
+    color: $color-link-hover;
+  }
+}
+
+// Contenedor general
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: $color-bg-header-footer;
+  padding: 10px 20px;
+}
 
-  h1 {
-    font-size: 1.8rem;
-    color: $color-principal;
+// Header
+h1 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+
+  .logo {
+    height: 50px;
+    margin-right: 10px;
   }
+}
 
-  nav ul {
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  .nav-links {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 15px;
+    padding: 0;
 
-    li a {
+    a {
       text-decoration: none;
-      color: $color-texto;
-      font-weight: bold;
+      color: $color-link;
+      font-weight: 600;
+      padding: 5px 8px;
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s;
 
       &:hover {
-        color: $color-secundario;
+        color: $color-link-hover;
+        background-color: lighten($color-link-hover, 40%);
       }
+
+      &.active {
+        background-color: $color-link-hover;
+        color: white;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .cart {
+    font-weight: bold;
+  }
+}
+
+// Hero
+.hero {
+  background-color: $color-bg-hero;
+  padding: 40px 20px;
+  text-align: center;
+
+  h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: darken($color-text, 10%);
+  }
+
+  .cta {
+    @include animation(pulse, 3s);
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 1px solid $color-btn-border;
+    background: $color-btn-bg;
+    color: $color-btn-text;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      background-color: $color-btn-bg-hover;
+      color: $color-btn-text-hover;
     }
   }
 }
 
-// =========================
-// Main
-// =========================
-main {
-  padding: 2rem;
+// Mensaje destacado
+.mensaje {
+  background: $color-bg-message;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  color: darken($color-link, 20%);
+}
 
-  .hero {
-    text-align: center;
-    padding: 3rem 1rem;
-    background: linear-gradient(135deg, $color-header, $color-fondo);
-    border-radius: 10px;
-    margin-bottom: 2rem;
+// Productos
+.productos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 20px;
+  text-align: center;
 
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      color: $color-principal;
+  .producto {
+    @extend %card-style;
+    @include animation(pulse, 4s, ease-in-out, 1);
+
+    img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    h3 {
+      margin: 10px 0 5px 0;
+      color: $color-link-hover;
     }
 
     p {
-      font-size: 1.1rem;
-      color: lighten($color-texto, 15%);
+      font-weight: bold;
+      color: #444;
+    }
+  }
+}
+
+// Formulario de contacto
+.contacto-form {
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  padding: 20px;
+  background-color: $color-bg-product;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: $color-link;
     }
 
-    a {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background: $color-principal;
-      color: $color-texto;
-      border-radius: 5px;
-      text-decoration: none;
+    input,
+    textarea {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid $color-border-product;
+      border-radius: 4px;
+      font-family: $font-family;
+      font-size: 1em;
+      resize: vertical;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: $color-link-hover;
+        outline: none;
+      }
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: $color-btn-bg-hover;
+      color: $color-btn-text-hover;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
 
       &:hover {
-        background: darken($color-principal, 10%);
+        background-color: darken($color-btn-bg-hover, 10%);
       }
     }
   }
+}
 
-  .destacados {
-    h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 2rem;
-      color: $color-secundario;
-    }
+// Footer
+footer {
+  background: $color-bg-header-footer;
+  padding: 20px;
+  font-size: 0.9em;
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 
-      .card {
-        background: $color-footer;
-        border-radius: 10px;
-        overflow: hidden;
-        transition: transform 0.3s ease;
+    .footer-links {
+      a {
+        display: block;
+        color: $color-link;
+        margin-top: 5px;
+        text-decoration: none;
+        transition: text-decoration 0.3s;
 
         &:hover {
-          transform: scale(1.03);
+          text-decoration: underline;
         }
+      }
+    }
 
-        img {
-          width: 100%;
-          height: 180px;
-          object-fit: cover;
-        }
+    .newsletter {
+      p {
+        margin: 0 0 5px 0;
+      }
 
-        .info {
-          padding: 1rem;
+      input {
+        padding: 5px;
+        border: 1px solid $color-border-product;
+        border-radius: 4px;
+        font-family: $font-family;
+      }
 
-          h3 {
-            margin-bottom: 0.5rem;
-            color: $color-principal;
-          }
+      button {
+        padding: 6px 10px;
+        background-color: $color-btn-bg-hover;
+        color: $color-btn-text-hover;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
 
-          p {
-            font-size: 0.9rem;
-            color: lighten($color-texto, 10%);
-          }
+        &:hover {
+          background-color: darken($color-btn-bg-hover, 10%);
         }
       }
     }
   }
-}
 
-// =========================
-// Footer
-// =========================
-footer {
-  background: $color-footer;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 2rem;
-
-  p {
-    font-size: 0.9rem;
-    color: lighten($color-texto, 30%);
-  }
-
-  a {
-    color: $color-principal;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-// =========================
-// Responsive
-// =========================
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
+  .copy {
     text-align: center;
+    margin-top: 20px;
+    color: darken($color-link, 40%);
+  }
+}
 
-    nav ul {
-      flex-direction: column;
-      margin-top: 1rem;
-    }
+// Responsive para Mobile
+@media screen and (max-width: 768px) {
+  .container,
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  main .hero {
-    padding: 2rem 1rem;
+  .productos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    h2 {
+      font-size: 1.5em;
+    }
   }
 }
