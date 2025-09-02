@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+  color: #f1faee;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #1d3557;
+  color: #f1faee;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  font-size: 1.8rem;
+  color: #e63946;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: #f1faee;
+  font-weight: bold;
+}
+header nav ul li a:hover {
+  color: #457b9d;
+}
+
+main {
+  padding: 2rem;
+}
+main .hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #1d3557, #111);
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+main .hero h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #e63946;
+}
+main .hero p {
+  font-size: 1.1rem;
+  color: white;
+}
+main .hero a {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #e63946;
+  color: #f1faee;
+  border-radius: 5px;
+  text-decoration: none;
+}
+main .hero a:hover {
+  background: rgb(209.5426008969, 26.4573991031, 40.2152466368);
+}
+main .destacados h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #457b9d;
+}
+main .destacados .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+main .destacados .grid .card {
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+main .destacados .grid .card:hover {
+  transform: scale(1.03);
+}
+main .destacados .grid .card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+main .destacados .grid .card .info {
+  padding: 1rem;
+}
+main .destacados .grid .card .info h3 {
+  margin-bottom: 0.5rem;
+  color: #e63946;
+}
+main .destacados .grid .card .info p {
+  font-size: 0.9rem;
+  color: white;
+}
+
+footer {
+  background: #222;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+footer p {
+  font-size: 0.9rem;
+  color: white;
+}
+footer a {
+  color: #e63946;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  header nav ul {
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  main .hero {
+    padding: 2rem 1rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

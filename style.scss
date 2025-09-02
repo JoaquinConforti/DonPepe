@@ -1,0 +1,188 @@
+// =========================
+// Variables
+// =========================
+$color-fondo: #111;
+$color-principal: #e63946;
+$color-secundario: #457b9d;
+$color-texto: #f1faee;
+$color-footer: #222;
+$color-header: #1d3557;
+$fuente-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+// =========================
+// Reset y base
+// =========================
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $color-fondo;
+  color: $color-texto;
+  font-family: $fuente-base;
+  line-height: 1.6;
+}
+
+// =========================
+// Header
+// =========================
+header {
+  background-color: $color-header;
+  color: $color-texto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-size: 1.8rem;
+    color: $color-principal;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+
+    li a {
+      text-decoration: none;
+      color: $color-texto;
+      font-weight: bold;
+
+      &:hover {
+        color: $color-secundario;
+      }
+    }
+  }
+}
+
+// =========================
+// Main
+// =========================
+main {
+  padding: 2rem;
+
+  .hero {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, $color-header, $color-fondo);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: $color-principal;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: lighten($color-texto, 15%);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background: $color-principal;
+      color: $color-texto;
+      border-radius: 5px;
+      text-decoration: none;
+
+      &:hover {
+        background: darken($color-principal, 10%);
+      }
+    }
+  }
+
+  .destacados {
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: $color-secundario;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+
+      .card {
+        background: $color-footer;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.03);
+        }
+
+        img {
+          width: 100%;
+          height: 180px;
+          object-fit: cover;
+        }
+
+        .info {
+          padding: 1rem;
+
+          h3 {
+            margin-bottom: 0.5rem;
+            color: $color-principal;
+          }
+
+          p {
+            font-size: 0.9rem;
+            color: lighten($color-texto, 10%);
+          }
+        }
+      }
+    }
+  }
+}
+
+// =========================
+// Footer
+// =========================
+footer {
+  background: $color-footer;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+
+  p {
+    font-size: 0.9rem;
+    color: lighten($color-texto, 30%);
+  }
+
+  a {
+    color: $color-principal;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// =========================
+// Responsive
+// =========================
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+
+    nav ul {
+      flex-direction: column;
+      margin-top: 1rem;
+    }
+  }
+
+  main .hero {
+    padding: 2rem 1rem;
+  }
+}
