@@ -1,98 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Don Pepe - Inicio</title>
-  <!-- Bootstrap -->
+  <meta name="description" content="Don Pepe: pizzas, milanesas y empanadas caseras con el sabor de siempre. Desde 1995 en tu mesa.">
+  <meta name="keywords" content="pizzas, milanesas, empanadas, fugazzeta, comida casera, delivery">
+  <meta name="author" content="Don Pepe">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-  <!-- Header con logo y navegación -->
-  <header>
-    <div class="container">
-      <h1>
-       🍽️ Don Pepe
-      </h1>
+  <!-- Header -->
+  <header class="bg-light shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <h1 class="h3 mb-0">🍽️ Don Pepe</h1>
       <nav>
-        <ul class="nav-links">
-          <li><a href="./Index.html" class="active">Inicio</a></li>
-          <li><a href="./Menu.html">Menú</a></li>
-          <li><a href="./Contacto.html">Nosotros</a></li>
+        <ul class="nav">
+          <li class="nav-item"><a href="./index.html" class="nav-link active">Inicio</a></li>
+          <li class="nav-item"><a href="./menu.html" class="nav-link">Menú</a></li>
+          <li class="nav-item"><a href="./contacto.html" class="nav-link">Contacto</a></li>
         </ul>
-        <div class="cart">
-          <span>🛒 Carrito (0)</span>
-        </div>
       </nav>
+      <div class="fw-bold">🛒 Carrito (0)</div>
     </div>
   </header>
 
-  <!-- Sección principal destacada -->
-  <section class="hero">
-    <h2>Comida casera con sabor real</h2>
-    <p>Disfrutá nuestras pizzas, milanesas y empanadas. ¡Recetas tradicionales desde 1995!</p>
-    <a class="cta" href="#">Hacé tu pedido</a>
+  <!-- Hero -->
+  <section class="hero text-center py-5">
+    <h2 class="display-5">Comida casera con sabor real</h2>
+    <p class="lead">Disfrutá nuestras pizzas, milanesas y empanadas. ¡Recetas tradicionales desde 1995!</p>
+    <a class="cta btn btn-outline-danger mt-3" href="#">Hacé tu pedido</a>
   </section>
 
-  <!-- Mensaje destacado -->
-  <section class="mensaje">
+  <!-- Oferta -->
+  <section class="mensaje text-center py-2 bg-warning fw-bold">
     <p>Envíos gratis en compras mayores a $5000</p>
   </section>
 
-  <!-- Productos principales -->
-  <section class="productos">
-    <div class="producto">
-      <img src="./imagenes/pizza napolitana.jpeg" alt="Pizza Napolitana" />
-      <h3>Pizza Napolitana</h3>
-      <p>$2500</p>
-    </div>
-    <div class="producto">
-      <img src="./imagenes/Milanesa con fritas.jpeg" alt="Milanesa con fritas" />
-      <h3>Milanesa con fritas</h3>
-      <p>$3200</p>
-    </div>
-    <div class="producto">
-      <img src="./imagenes/Empanadas Argentine_ Fagottini Ripieni Ricchi di Gusto.jpeg" alt="Empanadas (docena)" />
-      <h3>Empanadas (docena)</h3>
-      <p>$3800</p>
-    </div>
-    <div class="producto">
-      <img src="./imagenes/FUGAZZETTA RELLENA.jpeg" alt="Fugazzeta rellena" />
-      <h3>Fugazzeta rellena</h3>
-      <p>$2800</p>
-    </div>
-    <div class="producto">
-      <img src="./imagenes/Pizza de Queso 🍕🧀__Ingredientes__Masa para pizza (1)_Salsa de tomate (1_2 taza).jpeg" alt="Pizza Muzza" />
-      <h3>Pizza Muzza</h3>
-      <p>$2300</p>
-    </div>
-    <div class="producto">
-      <img src="./imagenes/descarga.jpeg" alt="Promo 2x1" />
-      <h3>Promo 2x1</h3>
-      <p>Jueves</p>
+  <!-- Productos -->
+  <section class="productos container py-5">
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-3 text-center producto">
+        <img src="./imagenes/pizza napolitana.jpeg" alt="Pizza Napolitana artesanal" class="img-fluid rounded shadow-sm">
+        <h3 class="h5 mt-2">Pizza Napolitana</h3>
+        <p class="fw-bold">$2500</p>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 text-center producto">
+        <img src="./imagenes/Milanesa con fritas.jpeg" alt="Milanesa casera con papas fritas" class="img-fluid rounded shadow-sm">
+        <h3 class="h5 mt-2">Milanesa con fritas</h3>
+        <p class="fw-bold">$3200</p>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 text-center producto">
+        <img src="./imagenes/Empanadas Argentine_ Fagottini Ripieni Ricchi di Gusto.jpeg" alt="Empanadas argentinas docena" class="img-fluid rounded shadow-sm">
+        <h3 class="h5 mt-2">Empanadas (docena)</h3>
+        <p class="fw-bold">$3800</p>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 text-center producto">
+        <img src="./imagenes/FUGAZZETTA RELLENA.jpeg" alt="Fugazzeta rellena" class="img-fluid rounded shadow-sm">
+        <h3 class="h5 mt-2">Fugazzeta rellena</h3>
+        <p class="fw-bold">$2800</p>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-links">
+  <footer class="bg-light py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div class="footer-links mb-3 mb-md-0">
         <h4>Don Pepe</h4>
-        <a href="./Index.html">Inicio</a>
-        <a href="./Menu.html">Menú</a>
-        <a href="./Contacto.html">Contacto</a>
+        <a href="./index.html">Inicio</a> |
+        <a href="./menu.html">Menú</a> |
+        <a href="./contacto.html">Contacto</a>
       </div>
-
       <div class="newsletter">
-        <p>Suscribite a nuestro boletín</p>
-        <input type="email" placeholder="Tu correo" />
-        <button>Suscribirme</button>
+        <p class="mb-1">Suscribite a nuestro boletín</p>
+        <input type="email" placeholder="Tu correo" class="form-control d-inline w-auto">
+        <button class="btn btn-danger btn-sm">Suscribirme</button>
       </div>
     </div>
-
-    <p class="copy">© 2025 Don Pepe - Todos los derechos reservados</p>
+    <p class="text-center mt-3 mb-0">© 2025 Don Pepe - Todos los derechos reservados</p>
   </footer>
 
 </body>

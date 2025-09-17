@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff8f0;
+  color: #333;
+}
+
+header {
+  background: #f7d6c1;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+header nav .nav-link {
+  color: #b22222;
+  font-weight: bold;
+}
+header nav .nav-link.active {
+  background: #b22222;
+  color: white;
+  border-radius: 4px;
+}
+header nav .nav-link:hover {
+  color: rgb(135.179245283, 25.820754717, 25.820754717);
+}
+
+.hero {
+  background: #f2f2f2;
+  padding: 40px 20px;
+  text-align: center;
+}
+.hero h2 {
+  color: #b22222;
+}
+.hero .cta {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #b22222;
+  border-radius: 4px;
+  color: #b22222;
+  background: white;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+}
+.hero .cta:hover {
+  background: #b22222;
+  color: white;
+}
+
+.mensaje {
+  background: rgb(235.8349056604, 154.6650943396, 154.6650943396);
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.productos .producto {
+  background: white;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+.productos .producto img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.productos .producto h3 {
+  color: #b22222;
+  margin: 10px 0 5px;
+}
+.productos .producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.contacto-form form label {
+  font-weight: bold;
+  color: #b22222;
+}
+.contacto-form form input, .contacto-form form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+.contacto-form form input:focus, .contacto-form form textarea:focus {
+  border-color: #b22222;
+  outline: none;
+}
+.contacto-form form button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #b22222;
+  border-radius: 4px;
+  color: #b22222;
+  background: white;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+}
+.contacto-form form button:hover {
+  background: #b22222;
+  color: white;
+}
+
+footer {
+  background: #f7d6c1;
+  padding: 20px;
+}
+footer .footer-links a {
+  color: #b22222;
+  margin: 0 5px;
+  text-decoration: none;
+}
+footer .footer-links a:hover {
+  text-decoration: underline;
+}
+footer .newsletter input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+footer .newsletter button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #b22222;
+  border-radius: 4px;
+  color: #b22222;
+  background: white;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+  padding: 5px 12px;
+  font-size: 0.9rem;
+}
+footer .newsletter button:hover {
+  background: #b22222;
+  color: white;
+}
+footer p {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .productos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .productos {
+    grid-template-columns: 1fr;
+  }
+  .hero h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

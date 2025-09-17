@@ -1,340 +1,191 @@
-// Variables
-$font-family: Arial, sans-serif;
-$color-text: #333;
-$color-link: #8b0000; // rojo oscuro
-$color-link-hover: #b22222;
-$color-bg-header-footer: #f7d6c1; // melocotón claro
-$color-bg-hero: #f2f2f2;
-$color-bg-message: #f9c5b3; // melocotón más fuerte
-$color-bg-product: #fff8f0; // fondo claro cálido para productos
-$color-border-product: #ccc;
-$color-btn-bg: white;
-$color-btn-border: #b22222;
-$color-btn-text: #b22222;
-$color-btn-bg-hover: #b22222;
-$color-btn-text-hover: white;
+// 🎨 Variables
+$primary: #b22222;
+$secondary: #f7d6c1;
+$light-gray: #f2f2f2;
+$font-stack: Arial, sans-serif;
 
-// Mixin para animaciones
-@mixin animation($name, $duration, $timing: ease-in-out, $iteration: infinite) {
-  animation-name: $name;
-  animation-duration: $duration;
-  animation-timing-function: $timing;
-  animation-iteration-count: $iteration;
-}
-
-// Keyframes para animación pulse
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(178, 34, 34, 0.7);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(178, 34, 34, 0.7);
-  }
-}
-
-// Extend para estilo común de tarjetas
-%card-style {
-  background-color: $color-bg-product;
-  padding: 15px;
-  border: 1px solid $color-border-product;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+// 🔁 Mixin para botones
+@mixin boton-estilo($color) {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid $color;
+  border-radius: 4px;
+  color: $color;
+  background: white;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    background: $color;
+    color: white;
   }
 }
 
-// General
+// 🖥️ Estilos generales
 body {
   margin: 0;
-  font-family: $font-family;
-  color: $color-text;
-  background-color: #fff8f0;
-  overflow-x: hidden; // evitar scroll horizontal
+  font-family: $font-stack;
+  background: #fff8f0;
+  color: #333;
 }
 
-a {
-  text-decoration: none;
-  color: $color-link;
+// 🔝 Header
+header {
+  background: $secondary;
 
-  &:hover {
-    color: $color-link-hover;
+  h1 {
+    margin: 0;
+    font-size: 1.5rem;
   }
-}
 
-// Contenedor general
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: $color-bg-header-footer;
-  padding: 10px 20px;
-}
-
-// Header
-h1 {
-  margin: 0;
-  display: flex;
-  align-items: center;
-
-  .logo {
-    height: 50px;
-    margin-right: 10px;
-  }
-}
-
-nav {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    padding: 0;
-
-    a {
-      text-decoration: none;
-      color: $color-link;
-      font-weight: 600;
-      padding: 5px 8px;
-      border-radius: 4px;
-      transition: background-color 0.3s, color 0.3s;
-
-      &:hover {
-        color: $color-link-hover;
-        background-color: lighten($color-link-hover, 40%);
-      }
+  nav {
+    .nav-link {
+      color: $primary;
+      font-weight: bold;
 
       &.active {
-        background-color: $color-link-hover;
+        background: $primary;
         color: white;
-        pointer-events: none;
+        border-radius: 4px;
+      }
+
+      &:hover {
+        color: darken($primary, 10%);
       }
     }
   }
-
-  .cart {
-    font-weight: bold;
-  }
 }
 
-// Hero
+// 🎯 Hero
 .hero {
-  background-color: $color-bg-hero;
+  background: $light-gray;
   padding: 40px 20px;
   text-align: center;
 
   h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-  }
-
-  p {
-    margin-top: 0;
-    font-size: 1.1em;
-    color: darken($color-text, 10%);
+    color: $primary;
   }
 
   .cta {
-    @include animation(pulse, 3s);
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: 1px solid $color-btn-border;
-    background: $color-btn-bg;
-    color: $color-btn-text;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-
-    &:hover {
-      background-color: $color-btn-bg-hover;
-      color: $color-btn-text-hover;
-    }
+    @include boton-estilo($primary);
   }
 }
 
-// Mensaje destacado
+// 🔔 Mensaje destacado
 .mensaje {
-  background: $color-bg-message;
+  background: lighten($primary, 35%);
   text-align: center;
   padding: 10px;
   font-weight: bold;
-  color: darken($color-link, 20%);
 }
 
-// Productos
+// 🍕 Productos
 .productos {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  padding: 20px;
-  text-align: center;
-
   .producto {
-    @extend %card-style;
-    @include animation(pulse, 4s, ease-in-out, 1);
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s;
 
     img {
       width: 100%;
       max-width: 200px;
-      height: auto;
       border-radius: 8px;
       margin-bottom: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
     h3 {
-      margin: 10px 0 5px 0;
-      color: $color-link-hover;
+      color: $primary;
+      margin: 10px 0 5px;
     }
 
-    p {
-      font-weight: bold;
-      color: #444;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
   }
 }
 
-// Formulario de contacto
+// 📩 Formulario de contacto
 .contacto-form {
-  max-width: 600px;
-  margin: 0 auto 40px auto;
-  padding: 20px;
-  background-color: $color-bg-product;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-
   form {
-    display: flex;
-    flex-direction: column;
-
     label {
-      margin-bottom: 5px;
-      font-weight: 600;
-      color: $color-link;
+      font-weight: bold;
+      color: $primary;
     }
 
-    input,
-    textarea {
+    input, textarea {
       padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid $color-border-product;
+      border: 1px solid #ccc;
       border-radius: 4px;
-      font-family: $font-family;
-      font-size: 1em;
-      resize: vertical;
-      transition: border-color 0.3s;
+      margin-bottom: 15px;
 
       &:focus {
-        border-color: $color-link-hover;
+        border-color: $primary;
         outline: none;
       }
     }
 
     button {
-      padding: 12px 20px;
-      background-color: $color-btn-bg-hover;
-      color: $color-btn-text-hover;
-      border: none;
-      border-radius: 4px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s;
+      @include boton-estilo($primary);
+    }
+  }
+}
+
+// 👣 Footer
+footer {
+  background: $secondary;
+  padding: 20px;
+
+  .footer-links {
+    a {
+      color: $primary;
+      margin: 0 5px;
+      text-decoration: none;
 
       &:hover {
-        background-color: darken($color-btn-bg-hover, 10%);
-      }
-    }
-  }
-}
-
-// Footer
-footer {
-  background: $color-bg-header-footer;
-  padding: 20px;
-  font-size: 0.9em;
-
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-
-    .footer-links {
-      a {
-        display: block;
-        color: $color-link;
-        margin-top: 5px;
-        text-decoration: none;
-        transition: text-decoration 0.3s;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-
-    .newsletter {
-      p {
-        margin: 0 0 5px 0;
-      }
-
-      input {
-        padding: 5px;
-        border: 1px solid $color-border-product;
-        border-radius: 4px;
-        font-family: $font-family;
-      }
-
-      button {
-        padding: 6px 10px;
-        background-color: $color-btn-bg-hover;
-        color: $color-btn-text-hover;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-
-        &:hover {
-          background-color: darken($color-btn-bg-hover, 10%);
-        }
+        text-decoration: underline;
       }
     }
   }
 
-  .copy {
+  .newsletter {
+    input {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      @include boton-estilo($primary);
+      padding: 5px 12px;
+      font-size: 0.9rem;
+    }
+  }
+
+  p {
     text-align: center;
-    margin-top: 20px;
-    color: darken($color-link, 40%);
+    margin-top: 15px;
+    font-size: 0.9rem;
   }
 }
 
-// Responsive para Mobile
-@media screen and (max-width: 768px) {
-  .container,
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
+// 📱 Responsive
+@media (max-width: 768px) {
   .productos {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .productos {
+    grid-template-columns: 1fr;
   }
 
-  .hero {
-    h2 {
-      font-size: 1.5em;
-    }
+  .hero h2 {
+    font-size: 1.3rem;
   }
 }

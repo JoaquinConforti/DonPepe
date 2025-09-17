@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Don Pepe - Contacto</title>
-  <!-- Bootstrap -->
+  <meta name="description" content="Ponete en contacto con Don Pepe: consultas, pedidos y sugerencias.">
+  <meta name="keywords" content="contacto, pedidos, sugerencias, Don Pepe">
+  <meta name="author" content="Don Pepe">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-  <!-- Header con logo y navegación -->
-  <header>
-    <div class="container">
-      <h1>
-      🍽️ Don Pepe
-      </h1>
+  <!-- Header -->
+  <header class="bg-light shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <h1 class="h3 mb-0">🍽️ Don Pepe</h1>
       <nav>
-        <ul class="nav-links">
-          <li><a href="./Index.html">Inicio</a></li>
-          <li><a href="./Menu.html">Menú</a></li>
-          <li><a href="./Contacto.html" class="active">Nosotros</a></li>
+        <ul class="nav">
+          <li class="nav-item"><a href="./index.html" class="nav-link">Inicio</a></li>
+          <li class="nav-item"><a href="./menu.html" class="nav-link">Menú</a></li>
+          <li class="nav-item"><a href="./contacto.html" class="nav-link active">Contacto</a></li>
         </ul>
-        <div class="cart">
-          <span>🛒 Carrito (0)</span>
-        </div>
       </nav>
+      <div class="fw-bold">🛒 Carrito (0)</div>
     </div>
   </header>
 
-  <!-- Sección principal de contacto -->
-  <section class="hero">
-    <h2>Contacto</h2>
-    <p>Estamos para ayudarte. ¡Escribinos!</p>
+  <!-- Hero -->
+  <section class="hero text-center py-5">
+    <h2 class="display-5">Contacto</h2>
+    <p class="lead">Estamos para ayudarte. ¡Escribinos!</p>
   </section>
 
-  <!-- Formulario de contacto -->
-  <section class="contacto-form">
-    <form action="#" method="post" novalidate>
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required />
-
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-
-      <button type="submit">Enviar</button>
+  <!-- Formulario -->
+  <section class="contacto-form container py-5">
+    <form class="p-4 bg-light rounded shadow-sm">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico:</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="mensaje" class="form-label">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" class="form-control" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-danger">Enviar</button>
     </form>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-links">
+  <footer class="bg-light py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div class="footer-links mb-3 mb-md-0">
         <h4>Don Pepe</h4>
-        <a href="./Index.html">Inicio</a>
-        <a href="./Menu.html">Menú</a>
-        <a href="./Contacto.html">Contacto</a>
+        <a href="./index.html">Inicio</a> |
+        <a href="./menu.html">Menú</a> |
+        <a href="./contacto.html">Contacto</a>
       </div>
-
       <div class="newsletter">
-        <p>Suscribite a nuestro boletín</p>
-        <input type="email" placeholder="Tu correo" />
-        <button>Suscribirme</button>
+        <p class="mb-1">Suscribite a nuestro boletín</p>
+        <input type="email" placeholder="Tu correo" class="form-control d-inline w-auto">
+        <button class="btn btn-danger btn-sm">Suscribirme</button>
       </div>
     </div>
-
-    <p class="copy">© 2025 Don Pepe - Todos los derechos reservados</p>
+    <p class="text-center mt-3 mb-0">© 2025 Don Pepe - Todos los derechos reservados</p>
   </footer>
 
 </body>
 </html>
+
